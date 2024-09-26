@@ -1,0 +1,124 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    margin-top: 100px;
+    background: linear-gradient(135deg, #6e8efb, #87d9ff);
+}
+
+.container {
+    perspective: 1000px; /* Enable 3D perspective */
+}
+
+.form-container {
+    width: 320px;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.form-box {
+    position: absolute;
+    width: 100%;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    color: white;
+    backface-visibility: hidden; /* Hide the back side when not visible */
+    text-align: center;
+}
+
+.login-box {
+    background-color: #2466e2;
+    z-index: 2;
+}
+
+.register-box {
+    background-color: #2466e2;
+    transform: rotateY(180deg); /* Initially hide the register box */
+    z-index: 1;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.input-box label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: white;
+    font-size: 12px;
+}
+
+.btn {
+    display: inline-block;
+    background: #6e8efb;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #a777e3;
+}
+
+.register-link, .login-link {
+    margin-top: 20px;
+}
+
+.register-link a, .login-link a {
+    color: #6e8efb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover, .login-link a:hover {
+    color: #a777e3;
+}
+
+/* Flip Animation */
+.form-container.flip {
+    transform: rotateY(180deg);
+}
